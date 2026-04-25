@@ -1,4 +1,4 @@
-from ai_model.components.data_tranformation import DataTransformation
+from ai_model.components.data_transformation import DataTransformation
 from ai_model.config.configration import ConfigrationManager
 
 
