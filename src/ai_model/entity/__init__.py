@@ -8,7 +8,16 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
-    
+
+
+@dataclass(frozen=True)
+class DataPreparationConfig:
+    root_dir: Path
+    data_path: Path
+    train_filename: str
+    validation_filename: str
+    test_filenames: list[str]
+
 
 @dataclass(frozen=True)
 class DataValidationConfig:
@@ -22,6 +31,7 @@ class DataTransformationConfig:
     root_dir: Path
     data_path: Path
     tokenizer_name: list
+
 
 @dataclass(frozen=True)
 class ModelTrainerConfig:
@@ -38,10 +48,11 @@ class ModelTrainerConfig:
     save_steps: float
     gradient_accumulation_steps: int
 
+
 @dataclass(frozen=True)
 class ModelEvaluationConfig:
-  root_dir: Path
-  data_path: Path
-  model_path: Path
-  tokenizer_path: Path
-  metric_file_name: Path
+    root_dir: Path
+    data_path: Path
+    model_path: Path
+    tokenizer_path: Path
+    metric_file_name: Path

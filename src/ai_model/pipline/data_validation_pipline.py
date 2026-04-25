@@ -2,7 +2,9 @@ from ai_model.components.data_validation import DataValidation
 from ai_model.config.configration import ConfigrationManager
 
 
-class DataValidationTrainigPipline:
+class DataValidationPipline:
+    STAGE_NAME = "Data Validation"
+    
     def __init__(self):
         pass
 

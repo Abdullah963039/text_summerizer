@@ -2,7 +2,9 @@ from ai_model.components.model_trainer import ModelTrainer
 from ai_model.config.configration import ConfigrationManager
 
 
-class ModelTrainerTrainingPipline:
+class ModelTrainerPipline:
+    STAGE_NAME = "Model Trainer"
+    
     def __init__(self):
         pass
 

@@ -2,6 +2,7 @@ from ai_model.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from ai_model.utils.common import read_yaml, create_directories
 from ai_model.entity import (
     DataIngestionConfig,
+    DataPreparationConfig,
     DataTransformationConfig,
     DataValidationConfig,
     ModelEvaluationConfig,
@@ -33,6 +34,21 @@ class ConfigrationManager:
         )
 
         return data_ingestion_config
+
+    def get_data_preparation_config(self) -> DataPreparationConfig:
+        config = self.config.data_preparation
+
+        create_directories([config.root_dir])
+
+        data_preparation_config = DataPreparationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            train_filename=config.train_filename,
+            validation_filename=config.validation_filename,
+            test_filenames=config.test_filenames,
+        )
+
+        return data_preparation_config
 
     def get_data_validation_config(self) -> DataValidationConfig:
         config = self.config.data_validation

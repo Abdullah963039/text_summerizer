@@ -2,7 +2,9 @@ from ai_model.components.data_ingestion import DataIngestion
 from ai_model.config.configration import ConfigrationManager
 
 
-class DataIngestionTrainigPipline:
+class DataIngestionPipline:
+    STAGE_NAME = "Data Ingestion"
+
     def __init__(self):
         pass
 

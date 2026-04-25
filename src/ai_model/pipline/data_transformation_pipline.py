@@ -2,7 +2,9 @@ from ai_model.components.data_tranformation import DataTransformation
 from ai_model.config.configration import ConfigrationManager
 
 
-class DataTransformationTrainigPipline:
+class DataTransformationPipline:
+    STAGE_NAME = "Data Transformation"
+
     def __init__(self):
         pass
 

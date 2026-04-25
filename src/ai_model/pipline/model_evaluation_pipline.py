@@ -2,7 +2,9 @@ from ai_model.components.model_evaluation import ModelEvaluation
 from ai_model.config.configration import ConfigrationManager
 
 
-class ModelEvaluationTrainingPipline:
+class ModelEvaluationPipline:
+    STAGE_NAME = "Model Evaluation"
+
     def __init__(self):
         pass
 
