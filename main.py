@@ -10,37 +10,37 @@ from ai_model.pipline.model_trainer_pipline import ModelTrainerPipline
 from ai_model.pipline.model_evaluation_pipline import ModelEvaluationPipline
 
 
-STAGE_NAME = "Data Ingestion stage"
-try:
-    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
-    data_ingestion = DataIngestionPipline()
-    data_ingestion.main()
-    logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
-except Exception as e:
-    logger.exception(e)
-    raise e
+# STAGE_NAME = "Data Ingestion stage"
+# try:
+#     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
+#     data_ingestion = DataIngestionPipline()
+#     data_ingestion.main()
+#     logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
+# except Exception as e:
+#     logger.exception(e)
+#     raise e
 
 
-STAGE_NAME = "Data Preparation stage"
-try:
-    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
-    data_preparation = DataPreparationPipline()
-    data_preparation.main()
-    logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
-except Exception as e:
-    logger.exception(e)
-    raise e
+# STAGE_NAME = "Data Preparation stage"
+# try:
+#     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
+#     data_preparation = DataPreparationPipline()
+#     data_preparation.main()
+#     logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
+# except Exception as e:
+#     logger.exception(e)
+#     raise e
 
 
-STAGE_NAME = "Data Validation stage"
-try:
-    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
-    data_validation = DataValidationPipline()
-    data_validation.main()
-    logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
-except Exception as e:
-    logger.exception(e)
-    raise e
+# STAGE_NAME = "Data Validation stage"
+# try:
+#     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
+#     data_validation = DataValidationPipline()
+#     data_validation.main()
+#     logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
+# except Exception as e:
+#     logger.exception(e)
+#     raise e
 
 
 # STAGE_NAME = "Data Tranformation stage"
@@ -54,15 +54,15 @@ except Exception as e:
 #     raise e
 
 
-# STAGE_NAME = "Model Trainer stage"
-# try:
-#     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
-#     model_trainer = ModelTrainerPipline()
-#     model_trainer.main()
-#     logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
-# except Exception as e:
-#     logger.exception(e)
-#     raise e
+STAGE_NAME = "Model Trainer stage"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
+    model_trainer = ModelTrainerPipline()
+    model_trainer.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<<\n\n\t\tx=================x")
+except Exception as e:
+    logger.exception(e)
+    raise e
 
 
 # STAGE_NAME = "Model Evaluation stage"

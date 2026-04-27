@@ -23,21 +23,21 @@ class ModelEvaluation:
         tokenizer,
         batch_size=16,
         device="cuda" if torch.cuda.is_available() else "cpu",
-        column_text="article",
-        column_summary="highlights",
+        column_text="dialogue",
+        column_summary="section_text",
     ):
-        article_batches = list(
+        dialogue_batches = list(
             self.generate_batch_sized_chunks(dataset[column_text], batch_size)
         )
         target_batches = list(
             self.generate_batch_sized_chunks(dataset[column_summary], batch_size)
         )
 
-        for article_batch, target_batch in tqdm(
-            zip(article_batches, target_batches), total=len(article_batches)
+        for dialogue_batch, target_batch in tqdm(
+            zip(dialogue_batches, target_batches), total=len(dialogue_batches)
         ):
             inputs = tokenizer(
-                article_batch,
+                dialogue_batch,
                 max_length=1024,
                 truncation=True,
                 padding="max_length",
@@ -74,14 +74,14 @@ class ModelEvaluation:
             self.config.model_path
         ).to(device)
 
-        dataset_samsum_pt = load_from_disk(self.config.data_path)
+        dataset = load_from_disk(self.config.data_path)
 
         rouge_names = ["rouge1", "rouge2", "rougeL", "rougeLsum"]
         rouge_metric = load_metric("rouge")
 
         score = self.calculate_metric_on_test_ds(
-            dataset_samsum_pt["train"],  # TODO
-            # dataset_samsum_pt["test"][0:10],  # TODO
+            dataset["train"],  # TODO
+            # dataset["test"][0:10],  # TODO
             rouge_metric,
             model_pegasus,
             tokenizer,

@@ -6,13 +6,12 @@ data_ingestion:
   local_data_file: artifacts/data_ingestion/dataset.zip
   unzip_dir: artifacts/data_ingestion
 
-
 data_preparation:
   root_dir: artifacts/data_preparation
   data_path: artifacts/data_ingestion/custom_dataset
-  train_filename: MTS-Dialog-TrainingSet.csv
-  validation_filename: MTS-Dialog-ValidationSet.csv
-  test_filenames: ["MTS-Dialog-TestSet-1-MEDIQA-Chat-2023.csv", "MTS-Dialog-TestSet-2-MEDIQA-Sum-2023.csv"]
+  train_path: artifacts/data_ingestion/custom_dataset/MTS-Dialog-TrainingSet.csv
+  validation_path: artifacts/data_ingestion/custom_dataset/MTS-Dialog-ValidationSet.csv
+  test_paths: ["artifacts/data_ingestion/custom_dataset/MTS-Dialog-TestSet-1-MEDIQA-Chat-2023.csv", "artifacts/data_ingestion/custom_dataset/MTS-Dialog-TestSet-2-MEDIQA-Sum-2023.csv"]
 
 data_validation:
   root_dir: artifacts/data_validation
@@ -23,13 +22,20 @@ data_validation:
 data_transformation:
   root_dir: artifacts/data_transformation
   data_path: artifacts/data_preparation
-  tokenizer_name: google/pegasus-xsum
+  save_dataset_dir: dataset
+  tokenizer_name: google/pegasus-large
+  tokenizer_truncation: True
+  tokenizer_padding: max_length
+  tokenizer_input_max_length: 512
+  tokenizer_target_max_length: 128
 
 
 model_trainer:
   root_dir: artifacts/model_trainer
   data_path: artifacts/data_transformation/dataset
-  model_ckpt: google/pegasus-xsum
+  model_ckpt: google/pegasus-pubmed
+  save_model: pegasus-model
+  save_tokenizer: tokenizer
 
 
 model_evaluation:

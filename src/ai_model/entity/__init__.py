@@ -14,9 +14,9 @@ class DataIngestionConfig:
 class DataPreparationConfig:
     root_dir: Path
     data_path: Path
-    train_filename: str
-    validation_filename: str
-    test_filenames: list[str]
+    train_path: Path
+    validation_path: Path
+    test_paths: list[Path]
 
 
 @dataclass(frozen=True)
@@ -30,7 +30,12 @@ class DataValidationConfig:
 class DataTransformationConfig:
     root_dir: Path
     data_path: Path
-    tokenizer_name: list
+    save_dataset_dir: str
+    tokenizer_name: str
+    tokenizer_truncation: bool
+    tokenizer_padding: str
+    tokenizer_input_max_length: int
+    tokenizer_target_max_length: int
 
 
 @dataclass(frozen=True)
@@ -38,6 +43,9 @@ class ModelTrainerConfig:
     root_dir: Path
     data_path: Path
     model_ckpt: Path
+    save_model: str
+    save_tokenizer: str
+    
     num_train_epochs: int
     warmup_steps: int
     per_device_train_batch_size: int

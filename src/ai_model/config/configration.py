@@ -43,9 +43,9 @@ class ConfigrationManager:
         data_preparation_config = DataPreparationConfig(
             root_dir=config.root_dir,
             data_path=config.data_path,
-            train_filename=config.train_filename,
-            validation_filename=config.validation_filename,
-            test_filenames=config.test_filenames,
+            train_path=config.train_path,
+            validation_path=config.validation_path,
+            test_paths=config.test_paths,
         )
 
         return data_preparation_config
@@ -71,7 +71,12 @@ class ConfigrationManager:
         data_transformation_config = DataTransformationConfig(
             root_dir=config.root_dir,
             data_path=config.data_path,
+            save_dataset_dir=config.save_dataset_dir,
             tokenizer_name=config.tokenizer_name,
+            tokenizer_truncation=config.tokenizer_truncation,
+            tokenizer_padding=config.tokenizer_padding,
+            tokenizer_input_max_length=config.tokenizer_input_max_length,
+            tokenizer_target_max_length=config.tokenizer_target_max_length,
         )
 
         return data_transformation_config
@@ -86,6 +91,8 @@ class ConfigrationManager:
             root_dir=config.root_dir,
             data_path=config.data_path,
             model_ckpt=config.model_ckpt,
+            save_model=config.save_model,
+            save_tokenizer=config.save_tokenizer,
             num_train_epochs=params.num_train_epochs,
             warmup_steps=params.warmup_steps,
             per_device_train_batch_size=params.per_device_train_batch_size,
